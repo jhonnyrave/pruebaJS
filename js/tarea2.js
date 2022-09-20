@@ -31,10 +31,15 @@ function yearBisiesto() {
   let textResponse = document.createElement("p");
   textResponse.setAttribute("id", "response-year");
 
-  if (valueYear % 4 == 0 && (valueYear % 100 != 0 || valueYear % 400 == 0)) {
-    textResponse.innerHTML = "El numero es bisiesto";
+  if (valueYear > 0) {
+    if (valueYear % 4 == 0 && (valueYear % 100 != 0 || valueYear % 400 == 0)) {
+      textResponse.innerHTML = "El numero es bisiesto";
+    } else {
+      textResponse.innerHTML = "El numero no es bisiesto";
+    }
   } else {
-    textResponse.innerHTML = "El numero no es bisiesto";
+    textResponse.innerHTML = "Por favor ingrese un año";
   }
+
   containerResult.append(textResponse);
 }
