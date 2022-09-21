@@ -25,7 +25,6 @@ task6.addEventListener("click", function (e) {
   };
   let urlApi = `https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF63528/datos/${fecha_ini}/${fecha_fin}?token=${token}`;
 
-  const ul = document.createElement("ul");
   fetch(urlApi, requestOptions)
     .then((response) => {
       return response.json();
@@ -35,19 +34,18 @@ task6.addEventListener("click", function (e) {
       let idserie = data.bmx.series[0].idSerie;
       let infoTipoCambio = data.bmx.series[0].datos;
 
-      let textTitle = document.createElement("p");
-      textTitle.innerHTML = `${descripcionTipoCambio} - serie: ${idserie}`;
-      containerResult.appendChild(textTitle);
-
-      let textDate = document.createElement("p");
-      textDate.innerHTML = `Consulta de rango de fecha desde: ${fecha_ini} hasta ${fecha_fin}`;
+      let textDate = document.createElement("h3");
+      textDate.innerHTML = `Consulta del tipo de cambio Pesos MX por Dolar en el rango de fecha desde: ${fecha_ini} hasta ${fecha_fin}`;
       containerResult.appendChild(textDate);
+
+      let textTitle = document.createElement("p");
+      textTitle.innerHTML = `Colección: ${descripcionTipoCambio} - serie: ${idserie}`;
+      containerResult.appendChild(textTitle);
 
       let table = document.createElement("table");
       table.setAttribute("class", "custom-table");
       let tblBody = document.createElement("tbody");
       let row = document.createElement("tr");
-
       let date = document.createElement("th");
       date.innerHTML = "Fecha";
       row.append(date);
