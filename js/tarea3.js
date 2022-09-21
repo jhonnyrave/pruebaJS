@@ -36,7 +36,6 @@ function createTable() {
   const valueRow = parseInt(document.getElementById("input-row").value);
   const valueColumn = parseInt(document.getElementById("input-column").value);
 
-  let body = document.getElementsByTagName("body")[0];
   let table = document.createElement("table");
   table.setAttribute("class", "custom-table");
   let tblBody = document.createElement("tbody");
@@ -52,5 +51,5 @@ function createTable() {
   }
 
   table.appendChild(tblBody);
-  body.appendChild(table);
+  containerResult.appendChild(table);
 }
